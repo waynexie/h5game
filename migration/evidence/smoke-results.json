@@ -1,0 +1,56 @@
+{
+  "target": "http://127.0.0.1:8789/h5game/",
+  "source": "http://127.0.0.1:8789/source/",
+  "checks": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "pixelParity": {
+        "title": "adedea7394bb1f903b51e07ff1da536ea23a8f897189d4f91e9fb24bc0aaad90",
+        "repair": "899d35243afa5479e2fd696660cade0f7f12d038e86f52da38eb3328ff6ce0c3",
+        "settings": "4165206a8c9921ea8a02bd0c38638440fc0a87766688fd5adcd2f1f671eadbae"
+      },
+      "runtimeErrors": 0,
+      "missingResources": 0
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "pixelParity": {
+        "title": "c14ef984f58da4010c7a3c5a5005968195c85ce2bcf598cd7e65b20108ddc619",
+        "repair": "b341b92313166022b8c7129413ec4bbb4739123fc681242d32d84399619c8e64",
+        "settings": "3392fe953addd841944f296ab1f5ad51e8824f3e4128a9a90bbed7f547ea7d14"
+      },
+      "runtimeErrors": 0,
+      "missingResources": 0
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "touch": "title → transitions → first order → observe → work",
+      "runtimeErrors": 0
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": "title → transitions → first order → observe → work",
+      "runtimeErrors": 0
+    },
+    {
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "touch": "title → transitions → first order → observe → work",
+      "runtimeErrors": 0
+    }
+  ]
+}

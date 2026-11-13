@@ -1,0 +1,130 @@
+{
+  "_note": "G1 订单与数值配置（策划维护）。取消小费：工钱固定，耐心只影响好评口碑与打赏概率。",
+  "patience": {
+    "max": 4,
+    "wrongToolCost": 1,
+    "splashCost": 1,
+    "urgentDrainEveryMs": 7000,
+    "effects": {
+      "rating": "结算好评星数=剩余耐心(最少1星)，累计成口碑，影响转介绍出现",
+      "tipFreeNote": "耐心不再扣钱；耐心归零也照常付工钱，只是没有打赏机会、好评1星"
+    }
+  },
+  "tools": {
+    "plunger": {
+      "name": "旧皮搋子",
+      "gesture": "rhythm_pump",
+      "worksOn": [
+        "soft"
+      ],
+      "suctionRadiusPx": 60,
+      "rhythm": {
+        "rebounceMs": 420,
+        "windowMs": 160,
+        "perfectWindowMs": 60,
+        "overPressSplashIfWaterAbove": 0.85,
+        "damagePerPerfect": 1,
+        "damagePerOffBeat": 0.3
+      },
+      "wrongFeedback": {
+        "hard": "咚咚声，水不动，堵点更深"
+      }
+    },
+    "plunger_pro": {
+      "name": "加压皮搋子",
+      "gesture": "rhythm_pump",
+      "upgradeOf": "plunger",
+      "price": 100,
+      "worksOn": [
+        "soft"
+      ],
+      "suctionRadiusPx": 90,
+      "rhythm": {
+        "rebounceMs": 420,
+        "windowMs": 260,
+        "perfectWindowMs": 110,
+        "overPressSplashIfWaterAbove": 0.85,
+        "damagePerPerfect": 2,
+        "damagePerOffBeat": 1
+      }
+    },
+    "scoop": {
+      "name": "水瓢",
+      "gesture": "drag_scoop",
+      "lowersWaterPerScoop": 0.2
+    },
+    "snake": {
+      "name": "弹簧疏通器",
+      "gesture": "rotate_then_pull",
+      "worksOn": [
+        "hard"
+      ],
+      "rotationsToReach": 3,
+      "pullHoldMs": 1200
+    }
+  },
+  "orders": [
+    {
+      "id": "o1",
+      "fault": "soft",
+      "object": "paper",
+      "waterLevel": 0.5,
+      "basePay": 30,
+      "flushClue": "水位慢慢上涨，水面打旋往下渗",
+      "customerLine": "师傅，冲不下去了，你看看。",
+      "tutorial": true,
+      "clogHp": 3
+    },
+    {
+      "id": "o2",
+      "fault": "soft",
+      "object": "paper",
+      "waterLevel": 0.92,
+      "basePay": 45,
+      "urgent": true,
+      "flushClue": "水快溢到马桶圈，水面晃荡",
+      "customerLine": "快点啊，八点我得出车！",
+      "requiredOrder": [
+        "scoop_to_below_0.6",
+        "plunger"
+      ],
+      "clogHp": 6,
+      "source": "call"
+    },
+    {
+      "id": "o3",
+      "fault": "hard",
+      "object": "rubber_duck",
+      "waterLevel": 0.6,
+      "basePay": 60,
+      "flushClue": "水完全不动，冒一个闷泡，水下隐约有异物轮廓",
+      "customerLine": "孩子刚在厕所玩了半天……",
+      "unlockCollection": "rubber_duck",
+      "clogHp": 1
+    },
+    {
+      "id": "o4",
+      "fault": "soft",
+      "object": "paper",
+      "waterLevel": 0.92,
+      "basePay": 45,
+      "urgent": true,
+      "flushClue": "水快溢到马桶圈，水面晃荡",
+      "customerLine": "又是你啊师傅！我得去高铁站接闺女。",
+      "requiredOrder": [
+        "scoop_to_below_0.6",
+        "plunger"
+      ],
+      "compareTimeWith": "o2",
+      "requiresUpgrade": "plunger_pro",
+      "clogHp": 6,
+      "source": "message"
+    }
+  ],
+  "shop": {
+    "upgradeOfferAfter": "o3",
+    "items": [
+      "plunger_pro"
+    ]
+  }
+}

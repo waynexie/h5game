@@ -1,0 +1,140 @@
+{
+  "_note": "G2 商业化与营业日配置草案（策划维护）。广告均为玩家自愿触发。",
+  "workday": {
+    "ordersPerDay": 4,
+    "overtimeOrdersViaAd": 1,
+    "nextDayWait": "none",
+    "interstitialAt": "day_end_only",
+    "firstAdFreeMinutes": 15
+  },
+  "rewardedAds": {
+    "retryKeepRating": {
+      "trigger": "splash_or_patience_zero",
+      "maxPerOrder": 1,
+      "note": "保住的是好评星数，不是钱"
+    },
+    "tryUpgradeOnce": {
+      "where": "shop_before_purchase",
+      "orders": 1
+    },
+    "rushOrder": {
+      "where": "order_board",
+      "maxPerDay": 1,
+      "payMultiplier": 1.8
+    },
+    "callMaster": {
+      "name": "打电话问老钱",
+      "showWhen": {
+        "wrongToolCount": 2,
+        "idleMs": 12000,
+        "patienceAtOrBelow": 0.5,
+        "logic": "any"
+      },
+      "freePerDay": 1,
+      "effect": [
+        "laoqian_voice_line_by_fault",
+        "highlight_correct_tool_3s",
+        "reveal_clog_outline_like_headlamp"
+      ],
+      "neverBlocksProgress": true,
+      "maxPerOrder": 1
+    },
+    "doublePay": {
+      "where": "settlement_secondary_button",
+      "target": "basePay",
+      "multiplier": 2,
+      "maxPerDay": 3
+    }
+  },
+  "orderSources": {
+    "message": {
+      "default": true,
+      "payMultiplier": 1.0,
+      "note": "普通单走喂信消息接单"
+    },
+    "call": {
+      "payMultiplier": 1.5,
+      "patienceMax": 3,
+      "useFor": [
+        "urgent",
+        "big_job"
+      ],
+      "maxPerDay": 1,
+      "note": "来电只给紧急单和大活儿，报酬高但耐心少一格"
+    },
+    "referral": {
+      "payMultiplier": 1.2,
+      "showAs": "order_board_card",
+      "alsoPreviewIn": "weixin",
+      "note": "转介绍必须出现在接单板，不依赖读聊天"
+    }
+  },
+  "laborFees": {
+    "lock_wang": {
+      "basePay": 25,
+      "note": "顺手单人工费，比马桶单低，强调是额外收入"
+    },
+    "lock_referral_1": {
+      "customer": "zhao_jie",
+      "basePay": 35,
+      "source": "referral"
+    }
+  },
+  "gifts": {
+    "_note": "打赏：少见、随机或剧本触发，现金或实物。台词与物品由叙事在 narrative.json 的 gifts 里填。",
+    "random": {
+      "chance": 0.15,
+      "chanceIfRating4": 0.3,
+      "maxPerDay": 1,
+      "requiresRatingAtLeast": 3,
+      "cashRange": [
+        5,
+        10
+      ],
+      "itemChance": 0.5,
+      "itemPool": [
+        "oranges",
+        "yogurt",
+        "pickles"
+      ],
+      "_note": "触发随机打赏时一半给现金一半给实物；实物不计钱"
+    },
+    "scripted": [
+      {
+        "order": "o2",
+        "kind": "cash",
+        "amount": 5,
+        "lineKey": "gifts.xu_no_change",
+        "note": "徐哥：不用找了"
+      },
+      {
+        "order": "o5",
+        "kind": "item",
+        "item": "apple_x2",
+        "amount": 0,
+        "lineKey": "gifts.wang_apples",
+        "note": "王阿姨硬塞两个苹果，可进图鉴"
+      },
+      {
+        "order": "o3",
+        "kind": "item",
+        "item": "candy",
+        "amount": 0,
+        "lineKey": "gifts.li_candy"
+      },
+      {
+        "order": "lock_referral_1",
+        "kind": "cash",
+        "amount": 10,
+        "lineKey": "gifts.zhao_transfer"
+      }
+    ],
+    "neverOn": [
+      "o1"
+    ],
+    "display": "仅在有打赏时结算页单独显示一行",
+    "_iconNote": "图标以 narrative.json gifts 各条的 icon 字段为准"
+  },
+  "maxOrderPayDisplay": 999,
+  "_maxOrderPayNote": "单笔本单报酬（含来电/加急倍率）上限 ¥999，HUD 本单金额框按 3 位数设计；目前最高约 ¥126（o6 70×加急1.8）"
+}
