@@ -1,0 +1,891 @@
+{
+  "_note": "叙事配置（叙事维护）。按 orders.json 的订单 id 对齐。所有 social 消息可忽略，不承载玩法解锁。家族群预览≤18字。{HERO} 为主角名占位，未定前显示“你”。",
+  "characters": {
+    "hero": {
+      "name": "{HERO}",
+      "voice": "话少，不辩解，只说跟活有关的"
+    },
+    "mom": {
+      "name": "妈妈",
+      "look": "50多岁，围裙，头像是一盆绿萝"
+    },
+    "dad": {
+      "name": "爸爸",
+      "look": "话少，头像是一张山水风景图（默认图）"
+    },
+    "ajie": {
+      "name": "阿杰",
+      "role": "表哥",
+      "look": "头像是自己在车边的侧脸照，墨镜"
+    },
+    "dagu": {
+      "name": "大姑",
+      "look": "头像是“家和万事兴”书法字"
+    },
+    "dazhuang": {
+      "name": "大壮",
+      "role": "发小",
+      "look": "头像是自家烧烤摊招牌"
+    },
+    "wang_ayi": {
+      "name": "王阿姨",
+      "role": "o1 客户，老小区独居，嘴碎热心",
+      "look": "60出头，烫卷短发，碎花棉马甲，袖套；耐心降时叉腰，满意时拍你胳膊",
+      "home": "老小区两居，卫生间蹲坑改的坐便，马桶盖套着钩针毛线套，窗台上一盆绿萝、肥皂盒和一瓶花露水，门后挂着孙子的小毛巾"
+    },
+    "xiao_xu": {
+      "name": "徐哥",
+      "role": "o2/o4 客户，四十多岁，跑货运的司机，嗓门大、急性子、讲义气",
+      "look": "四十多岁，寸头微胖，黑夹克里套反光背心，手机用挂绳挂脖子上；着急时一直看手机上的时间",
+      "home": "老小区一居室。卫生间：镜子边贴着手写的出车时间表，洗衣机上搭着反光背心和工装，门后挂着一串车钥匙，牙杯里两支牙刷"
+    },
+    "li_jie": {
+      "name": "李姐",
+      "role": "o3 客户，带娃",
+      "look": "30多岁，扎低马尾，抱着/牵着3岁小孩，围裙；耐心降时孩子开始哭",
+      "home": "新一点的商品房，浴缸边一排洗澡玩具（少了小黄鸭），墙上贴卡通防滑贴和身高尺，洗衣机上放着叠好的小衣服"
+    },
+    "nainai": {
+      "name": "奶奶",
+      "role": "群里最长辈，只发语音和早安图",
+      "look": "头像是一朵荷花"
+    },
+    "sanyi": {
+      "name": "三姨",
+      "role": "爱晒家里新东西（新马桶是后期伏笔）",
+      "look": "头像是孙子的照片"
+    },
+    "erjiu": {
+      "name": "二舅",
+      "role": "爱钓鱼，发鱼照片",
+      "look": "头像是手举大鱼"
+    },
+    "biaomei": {
+      "name": "表妹",
+      "role": "大学生，偶尔帮主角说话",
+      "look": "头像是动漫角色"
+    },
+    "lao_qian": {
+      "name": "老钱",
+      "role": "带主角入行的老师傅，嘴硬心软，每次先嫌一句再给提示",
+      "look": "50多岁，平头花白，耳朵夹木工铅笔、叼牙签，深蓝旧工装，手上老茧；默认嫌弃脸",
+      "home": "不出现在家里场景；来电画面背景是他的五金铺，墙上挂满工具"
+    },
+    "zhao_jie": {
+      "name": "赵姐",
+      "role": "第一位推荐客户，利落直爽",
+      "look": "40岁左右，短发利落，职业装外套，手里拿车钥匙",
+      "home": "装修利落的三居，门口鞋柜整齐，挂着一串车钥匙和门禁卡，防盗门上贴着福字"
+    }
+  },
+  "orders": {
+    "o1": {
+      "client": "wang_ayi",
+      "props": [
+        "红色塑料桶",
+        "窗台一盆绿萝和花露水",
+        "钩针毛线马桶套"
+      ],
+      "lines": {
+        "arrive": {
+          "speaker": "wang_ayi",
+          "text": "师傅，冲不下去了，你看看。"
+        },
+        "wrong_tool": {
+          "speaker": "wang_ayi",
+          "text": "不急不急，慢慢弄。"
+        },
+        "done": {
+          "speaker": "wang_ayi",
+          "text": "哎哟，比我儿子强。"
+        },
+        "done_hero": {
+          "speaker": "hero",
+          "text": "纸别一次扔太多。"
+        }
+      },
+      "bubbles": {
+        "_note": "头像气泡。按触发事件出，mood 对应头像表情 p1..p4（p = 1 + 掉的格数）。同一时间只出一个，两条之间至少隔 4 秒；台词气泡出现时操作提示先藏。每条≤20字，按每行10字、最多2行排。",
+        "arrive": {
+          "mood": "p1",
+          "text": "师傅，冲不下去了，你看看。"
+        },
+        "need": {
+          "mood": "p1",
+          "text": "师傅，冲不下去了，你看看。",
+          "_note": "S1 用，同 arrive"
+        },
+        "dont_flush": {
+          "mood": "shock",
+          "text": "哎哎别冲了！要漫出来了！",
+          "_note": "S4 玩家按引导冲水后，第一个笑点。shock 若无单独表情用 p3"
+        },
+        "idle_p1": {
+          "mood": "p1",
+          "text": "这么早就出来干活啦？",
+          "_note": "p1 阶段 6 秒无操作，只出一次"
+        },
+        "patience_p2": {
+          "mood": "p2",
+          "text": "师傅，好弄不？"
+        },
+        "patience_p3": {
+          "mood": "p3",
+          "text": "我九点还得去接孙子……"
+        },
+        "patience_p4": {
+          "mood": "p4",
+          "text": "哎呀，这可咋整……"
+        },
+        "wrong_tool": {
+          "mood": "p1",
+          "text": "不急不急，慢慢弄。"
+        },
+        "wrong_tool_late": {
+          "mood": "p3",
+          "text": "那个……是干这个的吗？",
+          "_note": "掉 2 格及以上时替换 wrong_tool"
+        },
+        "progress_hit": {
+          "mood": "p1",
+          "text": "哎，有动静了！",
+          "_note": "第一次疏通掉格时，只出一次"
+        },
+        "splash": {
+          "mood": "p2",
+          "text": "哎哟，溅着没？"
+        },
+        "done": {
+          "mood": "p1",
+          "text": "哎哟，比我儿子强。"
+        },
+        "thanks": {
+          "mood": "p1",
+          "text": "通了通了！哎哟，比我儿子强。",
+          "_note": "S7 疏通瞬间；结算页仍用 done"
+        }
+      }
+    },
+    "o2": {
+      "client": "xiao_xu",
+      "props": [
+        "镜子边手写的出车时间表",
+        "洗衣机上搭着反光背心"
+      ],
+      "lines": {
+        "arrive": {
+          "speaker": "xiao_xu",
+          "text": "师傅你可来了！就这个。",
+          "_note": "来电里已经说过八点出车，现场不重复"
+        },
+        "splash": {
+          "speaker": "xiao_xu",
+          "text": "哎哟，我的布鞋！"
+        },
+        "wrong_tool": {
+          "speaker": "xiao_xu",
+          "text": "师傅……来得及吗？"
+        },
+        "done": {
+          "speaker": "xiao_xu",
+          "text": "得救了！我先走了啊！"
+        },
+        "done_hero": {
+          "speaker": "hero",
+          "text": "门我帮你带上。"
+        }
+      },
+      "bubbles": {
+        "_note": "同 o1 规则。来电单 3 格，表情最多到 p3。",
+        "arrive": {
+          "mood": "p1",
+          "text": "师傅你可来了！就这个。"
+        },
+        "patience_p2": {
+          "mood": "p2",
+          "text": "还有二十分钟……"
+        },
+        "patience_p3": {
+          "mood": "p3",
+          "text": "我先给车队打个电话……"
+        },
+        "wrong_tool": {
+          "mood": "p2",
+          "text": "师傅……来得及吗？"
+        },
+        "progress_hit": {
+          "mood": "p1",
+          "text": "动了动了！"
+        },
+        "splash": {
+          "mood": "p2",
+          "text": "哎哟，我的布鞋！"
+        },
+        "done": {
+          "mood": "p1",
+          "text": "得救了！我先走了啊！"
+        }
+      }
+    },
+    "o3": {
+      "client": "li_jie",
+      "props": [
+        "浴缸边一排洗澡玩具，少了一只",
+        "门上贴着卡通身高尺"
+      ],
+      "lines": {
+        "arrive": {
+          "speaker": "li_jie",
+          "text": "孩子刚在厕所玩了半天……"
+        },
+        "wrong_tool": {
+          "speaker": "li_jie",
+          "text": "怎么一点都不动啊？"
+        },
+        "done": {
+          "speaker": "li_jie",
+          "text": "鸭鸭！我说找不着呢。"
+        },
+        "done_hero": {
+          "speaker": "hero",
+          "text": "洗洗还能用。"
+        }
+      },
+      "_clue": "arrive 台词 + 少一只的玩具 = 硬物线索，不额外提示"
+    },
+    "o4": {
+      "client": "xiao_xu",
+      "props": [
+        "出车时间表上多了一行红笔：接闺女 10:30"
+      ],
+      "lines": {
+        "arrive": {
+          "speaker": "xiao_xu",
+          "text": "又是你啊师傅！我得去高铁站接闺女。"
+        },
+        "wrong_tool": {
+          "speaker": "xiao_xu",
+          "text": "师傅你今天手感不行啊？"
+        },
+        "done": {
+          "speaker": "xiao_xu",
+          "text": "比上次还快！赶得上了。"
+        },
+        "done_hero": {
+          "speaker": "hero",
+          "text": "路上慢点。"
+        }
+      }
+    },
+    "o5": {
+      "client": "wang_ayi",
+      "_g2": true,
+      "call": {
+        "type": "weixin_msg",
+        "caller": "wang_ayi",
+        "text": "师傅，又是我，马桶又不走水了。"
+      },
+      "lines": {
+        "arrive": {
+          "speaker": "wang_ayi",
+          "text": "又是我，熟人了啊。"
+        },
+        "wrong_tool": {
+          "speaker": "wang_ayi",
+          "text": "不急不急，慢慢弄。"
+        },
+        "done": {
+          "speaker": "wang_ayi",
+          "text": "还是你靠谱。"
+        }
+      },
+      "post_event": "lock_wang",
+      "props": [
+        "门口鞋柜上放着备用钥匙",
+        "防盗门锁孔有点锈"
+      ],
+      "_props_note": "门锁物件在门口画面，不在卫生间"
+    }
+  },
+  "social": [
+    {
+      "id": "s1",
+      "after": "o1",
+      "channel": "family_group",
+      "sender": "ajie",
+      "text": "哈哈 @你 专业对口了"
+    },
+    {
+      "id": "s2",
+      "after": "o1",
+      "channel": "family_group",
+      "sender": "dagu",
+      "text": "[捂脸]阿杰别闹"
+    },
+    {
+      "id": "s3",
+      "after": "o1",
+      "channel": "dm_mom",
+      "sender": "mom",
+      "text": "吃饭没？"
+    },
+    {
+      "id": "s4",
+      "after": "o2",
+      "channel": "dm_dazhuang",
+      "sender": "dazhuang",
+      "text": "出山了？我家厕所也有情绪"
+    },
+    {
+      "id": "s5",
+      "after": "o3",
+      "channel": "family_group",
+      "sender": "dagu",
+      "text": "[链接]马桶里千万别扔这8样"
+    },
+    {
+      "id": "s6",
+      "after": "o3",
+      "channel": "dm_dad",
+      "sender": "dad",
+      "text": "工具别买太便宜的。"
+    },
+    {
+      "id": "s7",
+      "after": "o4",
+      "channel": "dm_mom",
+      "sender": "mom",
+      "text": "天冷了，秋裤穿上。"
+    }
+  ],
+  "g2_hooks": {
+    "_note": "键名对齐 g2_orders.json：lock_wang（王阿姨顺手单）、lock_referral_1（赵姐转介绍单）。",
+    "social_after_referral": {
+      "channel": "dm_mom",
+      "sender": "mom",
+      "text": "听说你还会修锁了？也得按时吃饭。"
+    },
+    "lock_wang": {
+      "after": "o5",
+      "blocking": true,
+      "dialogue": [
+        {
+          "speaker": "wang_ayi",
+          "text": "师傅，等一下。我家这门锁最近也不太灵，你会修不？"
+        },
+        {
+          "speaker": "hero",
+          "text": "这个……我主要是修水管的，不太懂。"
+        },
+        {
+          "speaker": "wang_ayi",
+          "text": "都差不多嘛，你工具也带着，帮我看看呗。修好了另外给你人工费。"
+        },
+        {
+          "speaker": "hero",
+          "text": "……行，那我试试，不保证能修好啊。"
+        }
+      ],
+      "gameplay": {
+        "target": "door_lock",
+        "tutorial": true,
+        "fail_penalty": "none"
+      },
+      "lines": {
+        "wrong_tool": {
+          "speaker": "wang_ayi",
+          "text": "不急，我又不赶着出门。"
+        },
+        "done": {
+          "speaker": "wang_ayi",
+          "text": "哎，顺了！你看，我就说差不多嘛。"
+        },
+        "done_hero": {
+          "speaker": "hero",
+          "text": "锁芯有点锈，平时滴点油。"
+        }
+      },
+      "reward": {
+        "label": "人工费",
+        "amount_from": "economy.json"
+      }
+    },
+    "lock_referral_1": {
+      "as": "order_card_on_board",
+      "channel_preview": "weixin_dm",
+      "sender": {
+        "name": "赵姐",
+        "role": "王阿姨介绍的新客户"
+      },
+      "preview": "师傅，王阿姨介绍的，听说你会修门锁？我家的也坏了，明天能来看看吗？",
+      "unlocks": [
+        "business_door_lock"
+      ],
+      "_rule": "必须以接单板卡片出现，不读消息也能接；消息只是同步预览",
+      "card_badge": "王阿姨介绍",
+      "appearsOn": "day3_board",
+      "lines": {
+        "arrive": {
+          "speaker": "zhao_jie",
+          "text": "王阿姨说你人实在。"
+        },
+        "wrong_tool_lube_spray": {
+          "speaker": "zhao_jie",
+          "text": "这不是没用吗？"
+        },
+        "done": {
+          "speaker": "zhao_jie",
+          "text": "我存你电话了，以后有事还找你。"
+        },
+        "done_hero": {
+          "speaker": "hero",
+          "text": "螺丝松了，拧紧就行。"
+        }
+      },
+      "on_accept": {
+        "channel": "dm_laoqian",
+        "sender": "lao_qian",
+        "text": "你包里没螺丝刀吧？拿我那把去。",
+        "grants": "screwdriver",
+        "_note": "接下这张卡时弹出，喂信私聊老钱；工具直接进托盘，不读也拿得到"
+      }
+    }
+  },
+  "app": {
+    "chat_app_name": "喂信",
+    "family_group_name": "相亲相爱一家人"
+  },
+  "family_group": {
+    "members": [
+      "nainai",
+      "dad",
+      "mom",
+      "dagu",
+      "ajie",
+      "sanyi",
+      "erjiu",
+      "biaomei",
+      "hero"
+    ],
+    "member_count_display": 23,
+    "_note": "成员条显示上面9人头像，其余折叠为“+14”。history 为开局前的已有记录，按时间顺序显示在群聊页顶部。",
+    "history": [
+      {
+        "sender": "nainai",
+        "text": "[语音] 6\""
+      },
+      {
+        "sender": "erjiu",
+        "text": "[图片] 今天这条有三斤"
+      },
+      {
+        "sender": "dagu",
+        "text": "二哥厉害👍"
+      },
+      {
+        "sender": "sanyi",
+        "text": "[图片] 新换的智能马桶，会自己开盖"
+      },
+      {
+        "sender": "ajie",
+        "text": "三姨这个牌子不错"
+      },
+      {
+        "sender": "mom",
+        "text": "大家早点睡"
+      }
+    ],
+    "hero_status": "已读不回"
+  },
+  "calls": {
+    "_note": "普通单走喂信消息；第一天只有 o2 来电。o4 仍是急单但走喂信。",
+    "o1": {
+      "type": "weixin_msg",
+      "caller": "wang_ayi",
+      "text": "师傅，我家马桶冲不下去了，今天能来吗？"
+    },
+    "o2": {
+      "type": "call",
+      "caller": "xiao_xu",
+      "text": "师傅能马上来吗？八点我得出车！",
+      "script": {
+        "_note": "首单完成后手机震动来电。接通后按顺序逐字出，caller 用语音气泡+波形，hero 用玩家侧气泡。每句停 1.6 秒或点击跳下一句。背景音建议货车怠速声。",
+        "ring_preview": "徐哥 来电",
+        "lines": [
+          {
+            "speaker": "xiao_xu",
+            "text": "喂，师傅？修马桶的师傅是吧？"
+          },
+          {
+            "speaker": "xiao_xu",
+            "text": "厕所堵死了，八点我得出车，能马上来不？"
+          },
+          {
+            "speaker": "hero",
+            "text": "能。地址发我。"
+          },
+          {
+            "speaker": "xiao_xu",
+            "text": "纺织厂家属院3栋401，门开着！"
+          },
+          {
+            "speaker": "xiao_xu",
+            "text": "快点啊师傅！"
+          }
+        ],
+        "missed_redial": {
+          "type": "weixin_msg",
+          "text": "师傅接下电话！急！",
+          "_note": "玩家 8 秒不接：挂断后来这条喂信，2 秒后再次来电。不扣耐心。"
+        }
+      }
+    },
+    "o3": {
+      "type": "weixin_msg",
+      "caller": "li_jie",
+      "text": "师傅，厕所堵了，孩子刚在里面玩。"
+    },
+    "o4": {
+      "type": "weixin_msg",
+      "caller": "xiao_xu",
+      "text": "师傅！又是我，又堵了，十点半接闺女！"
+    }
+  },
+  "call_master": {
+    "_note": "对应 economy.json callMaster 的 voice_hint_line_by_fault。按当前状态选键：水位>0.85 且未舀水优先用 high_water。每次随机取一句 opener + 对应 hint。",
+    "opener": [
+      "这都不会？",
+      "又是你。",
+      "说快点，我在吃饭。"
+    ],
+    "hints": {
+      "soft": [
+        "软堵，节奏对了就通，别乱捣。",
+        "压到底，等它弹回来再拉。"
+      ],
+      "high_water": [
+        "水那么满你也敢压？先舀。",
+        "先把水舀下去，不然溅你一脸。"
+      ],
+      "hard": [
+        "咚咚响就不是纸，换弹簧。",
+        "里头有东西，皮搋子没用。"
+      ]
+    },
+    "closer": [
+      "行了，挂了。",
+      "下回别打了。"
+    ]
+  },
+  "moments": {
+    "_note": "朋友圈（G2）。全部可忽略；评论区体现亲戚关系。主角可点赞但不评论。",
+    "posts": [
+      {
+        "id": "m1",
+        "author": "ajie",
+        "text": "提车了，感谢一直努力的自己。",
+        "image": "新车方向盘+车钥匙",
+        "likes": [
+          "dagu",
+          "sanyi",
+          "mom"
+        ],
+        "comments": [
+          {
+            "from": "dagu",
+            "text": "我儿子真能干"
+          },
+          {
+            "from": "biaomei",
+            "text": "表哥车贷多少年呀"
+          }
+        ]
+      },
+      {
+        "id": "m2",
+        "author": "sanyi",
+        "text": "新换的马桶，会自己冲水，孙子天天去按。",
+        "image": "智能马桶+小孩的手",
+        "likes": [
+          "nainai",
+          "dagu"
+        ],
+        "comments": [
+          {
+            "from": "erjiu",
+            "text": "这玩意坏了好修不？"
+          },
+          {
+            "from": "sanyi",
+            "text": "坏了找厂家呗"
+          }
+        ],
+        "_seed": "后期三姨家智能马桶出故障，厂家排队一周，最后找主角"
+      },
+      {
+        "id": "m3",
+        "author": "erjiu",
+        "text": "今天三斤二两。",
+        "image": "手举大鱼",
+        "likes": [
+          "dad",
+          "dazhuang"
+        ],
+        "comments": [
+          {
+            "from": "dad",
+            "text": "哪个塘"
+          }
+        ]
+      },
+      {
+        "id": "m4",
+        "author": "dazhuang",
+        "text": "今晚烧烤摊，老同学八折。",
+        "image": "烧烤架烟雾",
+        "likes": [
+          "hero"
+        ],
+        "comments": [
+          {
+            "from": "dazhuang",
+            "text": "@你 给你留了腰子"
+          }
+        ]
+      },
+      {
+        "id": "m5",
+        "author": "mom",
+        "text": "[转发] 冬季养生：这三种汤最暖胃",
+        "image": "文章卡片",
+        "likes": [
+          "nainai",
+          "dagu"
+        ],
+        "comments": []
+      }
+    ]
+  },
+  "workday_beats": {
+    "_note": "G2 营业日节奏文案。morning=早上开接单板；commute=路上随机冒（最多1条/段）；evening=收工结算后。全部可忽略。",
+    "morning": [
+      {
+        "sender": "nainai",
+        "channel": "family_group",
+        "text": "[图片] 早上好 平安喜乐"
+      },
+      {
+        "sender": "mom",
+        "channel": "dm_mom",
+        "text": "早饭吃了再出门。"
+      }
+    ],
+    "commute": [
+      {
+        "sender": "dagu",
+        "channel": "family_group",
+        "text": "[链接]这几种食物千万别隔夜吃"
+      },
+      {
+        "sender": "dazhuang",
+        "channel": "dm_dazhuang",
+        "text": "今天收工来摊上坐会儿？"
+      },
+      {
+        "sender": "erjiu",
+        "channel": "family_group",
+        "text": "[图片] 又是一条"
+      }
+    ],
+    "evening": [
+      {
+        "sender": "mom",
+        "channel": "dm_mom",
+        "text": "吃饭没？"
+      },
+      {
+        "sender": "mom",
+        "channel": "dm_mom",
+        "text": "锅里给你留了饭。"
+      },
+      {
+        "sender": "mom",
+        "channel": "dm_mom",
+        "text": "别太累了，早点睡。"
+      }
+    ]
+  },
+  "_scene_rule": "卫生间里只放卫生间会有的东西；小广告只在楼道、单元门口、电表箱",
+  "gifts": {
+    "_note": "剧情固定打赏用 xu_no_change / wang_apples；随机打赏（economy.json 概率）从 by_client 里该客户的 cash 条目取台词，没有 cash 条目的客户用 random_cash_generic。item 条目留作后续剧情固定打赏备用。",
+    "hero_decline": [
+      "不用不用。",
+      "这哪行。",
+      "工钱给过了。"
+    ],
+    "by_client": {
+      "wang_ayi": [
+        {
+          "type": "item",
+          "item": "两个苹果",
+          "line": "拿着！不拿我生气了。",
+          "insist": "塞你兜里了啊。",
+          "icon": "gift_apples"
+        },
+        {
+          "type": "item",
+          "item": "一罐自家腌的咸菜",
+          "line": "自己腌的，下饭。",
+          "icon": "gift_pickles"
+        }
+      ],
+      "xiao_xu": [
+        {
+          "type": "cash",
+          "line": "不用找了！",
+          "insist": "拿着拿着，我赶时间。",
+          "icon": "gift_cashroll"
+        },
+        {
+          "type": "item",
+          "item": "两个车上拉的橙子",
+          "line": "车上拉的，甜得很。",
+          "icon": "gift_oranges"
+        }
+      ],
+      "li_jie": [
+        {
+          "type": "item",
+          "item": "一颗糖（孩子递的）",
+          "line": "宝宝，把糖给叔叔。",
+          "insist": "他非要给你。",
+          "_note": "孩子递糖，主角蹲下接，不推辞",
+          "icon": "gift_candy"
+        },
+        {
+          "type": "item",
+          "item": "两盒酸奶",
+          "line": "带着路上喝。",
+          "icon": "gift_yogurt"
+        }
+      ],
+      "zhao_jie": [
+        {
+          "type": "cash",
+          "line": "我多转你十块，别推了。",
+          "icon": "gift_cashroll"
+        }
+      ]
+    },
+    "settle_row_label": {
+      "cash": "客户硬塞",
+      "item": "收到"
+    },
+    "xu_no_change": {
+      "order": "o2",
+      "client": "xiao_xu",
+      "type": "cash",
+      "line": "不用找了！",
+      "hero": "不用不用。",
+      "insist": "拿着拿着，我赶时间。",
+      "icon": "gift_cashroll"
+    },
+    "wang_apples": {
+      "order": "o5",
+      "client": "wang_ayi",
+      "type": "item",
+      "item": "两个苹果",
+      "icon": "gift_apples",
+      "line": "拿着！不拿我生气了。",
+      "hero": "这哪行。",
+      "insist": "塞你兜里了啊。"
+    },
+    "random_cash_generic": [
+      "师傅辛苦，多的拿着。",
+      "零头不用找了。"
+    ],
+    "li_candy": {
+      "order": "o3",
+      "client": "li_jie",
+      "type": "item",
+      "item": "一颗糖",
+      "icon": "gift_candy",
+      "line": "宝宝，把糖给叔叔。",
+      "hero_action": "蹲下接过，不推辞",
+      "hero": "谢谢。"
+    },
+    "zhao_transfer": {
+      "order": "lock_referral_1",
+      "client": "zhao_jie",
+      "type": "cash",
+      "line": "我多转你十块，别推了。",
+      "hero": "这……",
+      "insist": "王阿姨说你实在，我也实在。",
+      "icon": "gift_cashroll"
+    },
+    "random_item_generic": {
+      "gift_oranges": {
+        "item": "几个橙子",
+        "line": "刚买的橙子，拿几个路上吃。"
+      },
+      "gift_yogurt": {
+        "item": "两盒酸奶",
+        "line": "冰箱里拿的，带着喝。"
+      },
+      "gift_pickles": {
+        "item": "一罐腌咸菜",
+        "line": "自家腌的，配粥香。"
+      }
+    }
+  },
+  "transitions": {
+    "_note": "过场文案。图上不带字，每张最多一句，用喂信预览条或台词气泡显示，点任意处跳过。line 为 null 时只显示画面。不出章节标题。",
+    "trans_morning": {
+      "bg": "trans_morning",
+      "line": {
+        "sender": "mom",
+        "style": "weixin_preview",
+        "text": "早饭吃了再出门。"
+      },
+      "skip_day1": true,
+      "_note": "第 1 天开局直接进王阿姨家厕所，不播早上过场；第 2 天起再播。"
+    },
+    "trans_road": {
+      "bg": "trans_road",
+      "line": {
+        "pool": "workday_beats.commute",
+        "style": "weixin_preview",
+        "chance": 0.5
+      }
+    },
+    "trans_stairwell": {
+      "bg": "trans_stairwell",
+      "line": null,
+      "sfx": "knock_door",
+      "_note": "画面重点在电表箱上的疏通小广告，不加字。"
+    },
+    "trans_evening": {
+      "bg": "trans_evening",
+      "line": {
+        "sender": "mom",
+        "style": "weixin_preview",
+        "text": "锅里给你留了饭。"
+      },
+      "alt_lines": [
+        {
+          "sender": "dad",
+          "style": "bubble",
+          "text": "你妈热过两回了。",
+          "weight": 1,
+          "_note": "低频，最多每3天1次"
+        }
+      ]
+    }
+  },
+  "hints": {
+    "_note": "操作提示（无尖角，和台词气泡同位）。每句≤20字。",
+    "flush_first": "先冲一下，看看什么情况",
+    "ring_match": "金圈套上绿圈时按下去",
+    "too_full_scoop": "水太满了，先用水瓢舀出来"
+  }
+}

@@ -1,0 +1,14 @@
+o1 {"screen":"play","money":0,"phase":"verify","hp":0,"water":0.37}
+splash {"screen":"play","money":30,"phase":"work","hp":6,"water":0.92}
+scooped {"screen":"play","money":30,"phase":"work","hp":6,"water":0.52}
+r2 {"screen":"result","money":103,"phase":"verify","hp":0,"water":0.36}
+thud {"screen":"play","money":103,"phase":"work","hp":1,"water":0.68}
+r3 {"screen":"result","money":163,"phase":"verify","hp":0,"water":0.36}
+r4 {"screen":"result","money":108,"phase":"verify","hp":0,"water":0.36}
+o5 {"screen":"result","money":148,"phase":"verify","hp":0,"water":0.36}
+lock_wang {"screen":"result","money":173,"phase":"done","water":null}
+o6 {"screen":"result","money":250,"phase":"verify","hp":0,"water":0.36}
+ref {"screen":"result","money":302,"phase":"done","water":null}
+final {"screen":"end","money":407,"phase":null,"hp":null,"water":null,"tip":null} {"day":3,"done":["lock_referral_1","o7","o6"],"board":["lock_referral_1","o7","o6"]}
+times {"1":7.466299999999956,"2":16.51610000000075,"3":9.116300000000493,"4":8.216300000001837,"11":7.383000000001658,"12":9.366300000002155,"13":6.716300000001553}
+ERRORS ["Failed to load resource: the server responded with a status of 404 (File not found)","Failed to load resource: the server responded with a status of 404 (File not found)"]

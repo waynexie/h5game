@@ -1,0 +1,1306 @@
+{
+ "canvas": {
+  "logical": [
+   390,
+   780
+  ],
+  "scale": 2,
+  "export_px": [
+   780,
+   1560
+  ],
+  "keep_clear_top_bottom_px": 15,
+  "flush_button": {
+   "x": 195,
+   "y": 240
+  },
+  "ui_positions": "UI 元素（HUD、台词气泡、工具箱、手机、老钱按钮、工具在格子里的位置）以 design/ui/hifi/ui-spec.md 为准，本文件只管美术图层。",
+  "bowl_geometry_v2": {
+   "units": "1x logical px (390x780 canvas)",
+   "opening_ellipse": {
+    "cx": 195.6,
+    "cy": 500.6,
+    "rx": 68.0,
+    "ry": 76.8,
+    "bbox": [
+     127.5,
+     425.5,
+     263.5,
+     579.0
+    ]
+   },
+   "opening_polygon": [
+    [
+     263.1,
+     500.6
+    ],
+    [
+     260.8,
+     518.1
+    ],
+    [
+     256.2,
+     535.6
+    ],
+    [
+     246.5,
+     551.5
+    ],
+    [
+     233.1,
+     565.6
+    ],
+    [
+     215.7,
+     575.5
+    ],
+    [
+     195.6,
+     579.1
+    ],
+    [
+     175.7,
+     575.0
+    ],
+    [
+     158.4,
+     565.1
+    ],
+    [
+     144.7,
+     551.5
+    ],
+    [
+     135.0,
+     535.6
+    ],
+    [
+     129.4,
+     518.3
+    ],
+    [
+     127.6,
+     500.6
+    ],
+    [
+     128.5,
+     482.6
+    ],
+    [
+     133.7,
+     464.9
+    ],
+    [
+     142.9,
+     447.9
+    ],
+    [
+     157.9,
+     435.2
+    ],
+    [
+     176.2,
+     428.2
+    ],
+    [
+     195.6,
+     425.6
+    ],
+    [
+     215.1,
+     427.7
+    ],
+    [
+     233.9,
+     434.4
+    ],
+    [
+     248.6,
+     447.6
+    ],
+    [
+     258.0,
+     464.6
+    ],
+    [
+     262.7,
+     482.6
+    ]
+   ],
+   "normal_water_ellipse": {
+    "cx": 194.3,
+    "cy": 519.0,
+    "rx": 34.0,
+    "ry": 34.0
+   },
+   "full_water": "fills opening_polygon",
+   "drain": {
+    "normal": {
+     "x": 194.8,
+     "y": 526.5
+    },
+    "full": {
+     "x": 196.2,
+     "y": 520.0
+    }
+   },
+   "plunger_cup_anchor": {
+    "normal": {
+     "x": 195.0,
+     "y": 523.0,
+     "max_cup_width": 64,
+     "note": "cup rim centred on the drain at the water surface; the cup must stay inside normal_water_ellipse (rx 34)"
+    },
+    "full": {
+     "x": 195.6,
+     "y": 512.0,
+     "max_cup_width": 96,
+     "note": "full water is nearer the camera, so the surface contact sits a little higher; cup stays inside opening_ellipse"
+    }
+   },
+   "clog_anchor": {
+    "x": 196.2,
+    "y": 518.0
+   },
+   "notes": "The opening geometry did NOT change from batch 1 (toilet_bowl / tank / lid unchanged); what changed is the water shape and the drain point. Hit-test the bowl with opening_polygon; place the plunger cup at plunger_cup_anchor for the current state."
+  },
+  "changelog": [
+   "v2 (Wen 14:21 反馈): 统一俯视透视；积水按碗型重画（normal/full 都和 toilet_bowl 同尺寸同锚点，s=1 不要缩放）；新增 clog_paper_deep；桶、置物台、洗衣板重画并改坐标；碗口/排水口/皮搋子落点见 canvas.bowl_geometry_v2。"
+  ]
+ },
+ "layer_order": [
+  "bg_bathroom_base",
+  "home_wang_windowsill",
+  "home_wang_washboard",
+  "toilet_tank",
+  "toilet_lid_up",
+  "home_wang_seatcover",
+  "toilet_bowl",
+  "toilet_bowl_inner",
+  "water_waterline_mark",
+  "water_surface_normal | water_surface_full",
+  "water_ripple_ring",
+  "clog_paper (normal) | clog_paper_deep (full)",
+  "clog_duck_silhouette | clog_duck",
+  "toilet_flushbtn_idle | toilet_flushbtn_pressed",
+  "scene_bucket_empty | scene_bucket_water",
+  "ui_toolbox_lid_lv1",
+  "ui_toolbox_body_lv1",
+  "(ui_toolbox_dividers only if the body skin has an empty interior)",
+  "ui_toolbox_lockplate x2 on locked slots",
+  "tools (plunger, scoop, snake)"
+ ],
+ "layers": [
+  {
+   "file": "assets/scene/bg_bathroom_base@2x.png",
+   "category": "scene",
+   "name": "bg_bathroom_base",
+   "pixel_size": [
+    780,
+    1560
+   ],
+   "anchor": "topleft",
+   "placement_1x": {
+    "x": 0,
+    "y": 0
+   },
+   "notes": "v2 (统一俯视): one camera, steep top-down ~65°, same as the toilet. Floor tile grid converges gently to the back wall; wall/floor junction ≈ y 280; door (left, x 0–78) seen from above with its top edge; washing machine (right, x 314–390, y 148–385) shows its top lid + foreshortened front. Slippers baked in at lower left (x 0–98, y 448–563). No toilet, bucket, shelf, washboard, tray, phone, ads, portraits or coins. Top 0–44 clear for the capsule menu."
+  },
+  {
+   "file": "assets/scene/toilet_tank@2x.png",
+   "category": "scene",
+   "name": "toilet_tank",
+   "pixel_size": [
+    384,
+    220
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195.5,
+    "y": 271.0
+   },
+   "notes": "Tank against the back wall. Draw under the lid and flush button. The tank top is blank so the flush-button sprite can be overlaid at (195, 240)."
+  },
+  {
+   "file": "assets/scene/toilet_flushbtn_idle@2x.png",
+   "category": "scene",
+   "name": "toilet_flushbtn_idle",
+   "pixel_size": [
+    64,
+    58
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195,
+    "y": 240
+   },
+   "notes": "Idle flush button. Hit area should be at least 44x44 even if the art is smaller."
+  },
+  {
+   "file": "assets/scene/toilet_flushbtn_pressed@2x.png",
+   "category": "scene",
+   "name": "toilet_flushbtn_pressed",
+   "pixel_size": [
+    64,
+    58
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195,
+    "y": 240
+   },
+   "notes": "Pressed state of the flush button, same anchor as idle."
+  },
+  {
+   "file": "assets/scene/toilet_lid_up@2x.png",
+   "category": "scene",
+   "name": "toilet_lid_up",
+   "pixel_size": [
+    353,
+    292
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195.2,
+    "y": 324.0
+   },
+   "notes": "Lid raised, leaning on the tank. Draw above the tank, under the 王阿姨 seat cover when that layer is on."
+  },
+  {
+   "file": "assets/scene/toilet_bowl@2x.png",
+   "category": "scene",
+   "name": "toilet_bowl",
+   "pixel_size": [
+    401,
+    473
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195.8,
+    "y": 507.8
+   },
+   "notes": "Bowl, lowered seat ring and pedestal. The inner opening is transparent so water / clogs / the waterline show through. Opening sits at about y=390-578, centered at x=195."
+  },
+  {
+   "file": "assets/scene/toilet_bowl_inner@2x.png",
+   "category": "scene",
+   "name": "toilet_bowl_inner",
+   "pixel_size": [
+    401,
+    473
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195.8,
+    "y": 507.8
+   },
+   "notes": "v2: painted porcelain basin with real depth (far wall shaded, near slope bright, drain throat) PLUS the standing water that always sits in the trap, a soft wet sheen just above it. Same pixel size / anchor as toilet_bowl, opaque only inside the bowl opening. Draw right above toilet_bowl. Because the trap water is painted here, the bowl never looks dry even if no water layer is drawn."
+  },
+  {
+   "file": "assets/scene/water_surface_full@2x.png",
+   "category": "scene",
+   "name": "water_surface_full",
+   "pixel_size": [
+    401,
+    473
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195.8,
+    "y": 507.8
+   },
+   "notes": "v2 FULL water: same size / anchor as toilet_bowl. Fills the whole opening to the inner rim (darker, ripples, drain visible through the water) and carries ~10 water beads on the seat ring just outside the opening. Draw at s=1. To animate level change, cross-fade full over normal by alpha instead of scaling."
+  },
+  {
+   "file": "assets/scene/water_surface_normal@2x.png",
+   "category": "scene",
+   "name": "water_surface_normal",
+   "pixel_size": [
+    401,
+    473
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195.8,
+    "y": 507.8
+   },
+   "notes": "v2 NORMAL water: same size / anchor as toilet_bowl (draw at s=1, x 195.8 y 507.8 — do NOT scale or shift any more; the old .55+.6*l scaling would show a double edge). Water-only alpha, painted against this exact bowl, so it follows the basin and meets the porcelain with a meniscus. Water ellipse ≈ centre (194.3, 519), rx 34, ry 34 (1x). Matches the water painted in toilet_bowl_inner pixel-for-pixel, so slosh offsets of ±2px are fine."
+  },
+  {
+   "file": "assets/scene/water_ripple_ring@2x.png",
+   "category": "scene",
+   "name": "water_ripple_ring",
+   "pixel_size": [
+    243,
+    275
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195.6,
+    "y": 502.6
+   },
+   "notes": "v2: soft broken concentric highlight arcs, centred on the bowl opening. Pulse scale 0.95–1.05 stays inside the opening. Full state only, alpha 0.6–0.9."
+  },
+  {
+   "file": "assets/scene/water_drop@2x.png",
+   "category": "scene",
+   "name": "water_drop",
+   "pixel_size": [
+    27,
+    48
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195,
+    "y": 400
+   },
+   "notes": "Single droplet particle. Spawn near the rim for full-water overflow and for splash bursts. Anchor is the drop center."
+  },
+  {
+   "file": "assets/scene/water_splash@2x.png",
+   "category": "scene",
+   "name": "water_splash",
+   "pixel_size": [
+    120,
+    85
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195,
+    "y": 390
+   },
+   "notes": "Short splash burst for pressing a full bowl. Place at the inner rim / water surface."
+  },
+  {
+   "file": "assets/scene/water_waterline_mark@2x.png",
+   "category": "scene",
+   "name": "water_waterline_mark",
+   "pixel_size": [
+    401,
+    473
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 195.8,
+    "y": 507.8
+   },
+   "notes": "v2: faint beige-grey stain ring above the normal waterline (alpha only), same size / anchor as toilet_bowl. Draw under water_surface_normal in the normal state; hide in the full state."
+  },
+  {
+   "file": "assets/scene/clog_paper@2x.png",
+   "category": "scene",
+   "name": "clog_paper",
+   "pixel_size": [
+    101,
+    96
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 196.2,
+    "y": 518.0
+   },
+   "notes": "v2: soggy paper wad lodged in the drain, partially submerged (top folds dry with outline, lower sheets seen through water, blue-tinted). Use in the NORMAL water state at (196.2, 518). Alpha by hp as before."
+  },
+  {
+   "file": "assets/scene/clog_paper_deep@2x.png",
+   "category": "scene",
+   "name": "clog_paper_deep",
+   "pixel_size": [
+    101,
+    96
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 196.2,
+    "y": 518.0
+   },
+   "notes": "v2: same paper wad as seen deep under FULL water (tinted, softened, refracted). Use instead of clog_paper while water is full; same anchor so swapping states does not jump."
+  },
+  {
+   "file": "assets/scene/clog_duck@2x.png",
+   "category": "scene",
+   "name": "clog_duck",
+   "pixel_size": [
+    147,
+    159
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 194.8,
+    "y": 512.0
+   },
+   "notes": "Yellow rubber duck (order 3, after it is identified / pulled). Do not show in the character portrait or on 李姐. v2: moved down to y 512 so the duck sits in the drain of the new basin."
+  },
+  {
+   "file": "assets/scene/clog_duck_silhouette@2x.png",
+   "category": "scene",
+   "name": "clog_duck_silhouette",
+   "pixel_size": [
+    147,
+    159
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 194.8,
+    "y": 512.0
+   },
+   "notes": "Underwater silhouette of the same duck pose. Use while the duck is still hidden in the bowl; the headlamp upgrade can tint / brighten this layer. v2: moved down to y 512 so the duck sits in the drain of the new basin."
+  },
+  {
+   "file": "assets/scene/scene_bucket_empty@2x.png",
+   "category": "scene",
+   "name": "scene_bucket_empty",
+   "pixel_size": [
+    142,
+    170
+   ],
+   "anchor": "bottom-center",
+   "placement_1x": {
+    "x": 330,
+    "y": 552
+   },
+   "notes": "v2: red bucket, empty, seen from the same steep top-down camera: near-circular opening, inside and bottom visible, only a short sliver of the side; soft floor shadow baked in (the base touches the floor ≈4px above the sprite bottom). Sits right of the bowl, above the 老钱 button (button top 560). Empty and water versions are pixel-aligned; swap freely."
+  },
+  {
+   "file": "assets/scene/scene_bucket_water@2x.png",
+   "category": "scene",
+   "name": "scene_bucket_water",
+   "pixel_size": [
+    142,
+    170
+   ],
+   "anchor": "bottom-center",
+   "placement_1x": {
+    "x": 330,
+    "y": 552
+   },
+   "notes": "v2: red bucket, about two-thirds full of water, seen from the same steep top-down camera: near-circular opening, inside and bottom visible, only a short sliver of the side; soft floor shadow baked in (the base touches the floor ≈4px above the sprite bottom). Sits right of the bowl, above the 老钱 button (button top 560). Empty and water versions are pixel-aligned; swap freely."
+  },
+  {
+   "file": "assets/scene/home_wang_seatcover@2x.png",
+   "category": "scene",
+   "name": "home_wang_seatcover",
+   "pixel_size": [
+    367,
+    256
+   ],
+   "anchor": "center",
+   "placement_1x": {
+    "x": 191.8,
+    "y": 317.5
+   },
+   "notes": "王阿姨 home layer: pink-and-cream crochet cover, sits on the raised lid."
+  },
+  {
+   "file": "assets/scene/home_wang_windowsill@2x.png",
+   "category": "scene",
+   "name": "home_wang_windowsill",
+   "pixel_size": [
+    200,
+    122
+   ],
+   "anchor": "topleft",
+   "placement_1x": {
+    "x": 205,
+    "y": 154
+   },
+   "notes": "v2 王阿姨 home layer: wall ledge above the toilet tank (right half), seen from above: top surface visible, pothos pot rim + soil, soap dish, 花露水 bottle cap. x 205–305, y 154–215, clear of the HUD right column (ends y 152) and of the tank top / flush button. The speech bubble / hint (left 16, top 160, max width 240) may briefly cover its left part; nothing on it is interactive."
+  },
+  {
+   "file": "assets/scene/home_wang_washboard@2x.png",
+   "category": "scene",
+   "name": "home_wang_washboard",
+   "pixel_size": [
+    138,
+    162
+   ],
+   "anchor": "topleft",
+   "placement_1x": {
+    "x": 284,
+    "y": 323
+   },
+   "notes": "v2 王阿姨 home layer: wooden washboard leaning against the washing machine's front-left, seen from above (top end nearest, ribbed face foreshortened), soft floor shadow baked in. Draw before the tank / lid."
+  },
+  {
+   "file": "assets/ui/ui_toolbox_lid_lv1@2x.png",
+   "anchor": "topleft",
+   "placement": "见 ui-spec.md"
+  },
+  {
+   "file": "assets/ui/ui_toolbox_body_lv1@2x.png",
+   "anchor": "topleft",
+   "placement": "见 ui-spec.md"
+  },
+  {
+   "file": "assets/ui/ui_toolbox_dividers@2x.png",
+   "anchor": "topleft",
+   "placement": "见 ui-spec.md"
+  },
+  {
+   "file": "assets/ui/ui_toolbox_lockplate@2x.png",
+   "anchor": "center",
+   "placement": "见 ui-spec.md"
+  },
+  {
+   "file": "assets/tools/tool_plunger_old@2x.png",
+   "anchor": "bottom-center",
+   "placement": "见 ui-spec.md"
+  },
+  {
+   "file": "assets/tools/tool_plunger_pro@2x.png",
+   "anchor": "bottom-center",
+   "placement": "见 ui-spec.md"
+  },
+  {
+   "file": "assets/tools/tool_scoop@2x.png",
+   "anchor": "bottom-center",
+   "placement": "见 ui-spec.md"
+  },
+  {
+   "file": "assets/tools/tool_snake@2x.png",
+   "anchor": "bottom-center",
+   "placement": "见 ui-spec.md"
+  }
+ ],
+ "portraits_v1": {
+  "_note": "客户头像 4 档耐心 + 老钱 + 地上手机。只记美术文件、尺寸和用途；位置以 ui-spec.md 为准。文件名里的 id 与 data/narrative.json characters 的 key 一致（徐哥 id 仍是 xiao_xu）。p1=耐心满 … p4=只剩最后一格。",
+  "preview": "design/art/portraits_v1_preview.png",
+  "card_check_1x": "design/art/portraits_v1_card_check_1x.png",
+  "files": [
+   {
+    "file": "assets/characters/avatar_wang_ayi_p1@2x.png",
+    "category": "avatar",
+    "name": "avatar_wang_ayi_p1",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "wang_ayi",
+    "patience_stage": 1,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。calm 平静。套袖；p3/p4 双手叉腰"
+   },
+   {
+    "file": "assets/characters/avatar_wang_ayi_p1_256.png",
+    "category": "avatar_master",
+    "name": "avatar_wang_ayi_p1_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "wang_ayi",
+    "patience_stage": 1,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_wang_ayi_p2@2x.png",
+    "category": "avatar",
+    "name": "avatar_wang_ayi_p2",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "wang_ayi",
+    "patience_stage": 2,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。slightly impatient 有点急。套袖；p3/p4 双手叉腰"
+   },
+   {
+    "file": "assets/characters/avatar_wang_ayi_p2_256.png",
+    "category": "avatar_master",
+    "name": "avatar_wang_ayi_p2_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "wang_ayi",
+    "patience_stage": 2,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_wang_ayi_p3@2x.png",
+    "category": "avatar",
+    "name": "avatar_wang_ayi_p3",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "wang_ayi",
+    "patience_stage": 3,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。impatient 不耐烦。套袖；p3/p4 双手叉腰"
+   },
+   {
+    "file": "assets/characters/avatar_wang_ayi_p3_256.png",
+    "category": "avatar_master",
+    "name": "avatar_wang_ayi_p3_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "wang_ayi",
+    "patience_stage": 3,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_wang_ayi_p4@2x.png",
+    "category": "avatar",
+    "name": "avatar_wang_ayi_p4",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "wang_ayi",
+    "patience_stage": 4,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。about to explode 快爆了。套袖；p3/p4 双手叉腰"
+   },
+   {
+    "file": "assets/characters/avatar_wang_ayi_p4_256.png",
+    "category": "avatar_master",
+    "name": "avatar_wang_ayi_p4_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "wang_ayi",
+    "patience_stage": 4,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_xiao_xu_p1@2x.png",
+    "category": "avatar",
+    "name": "avatar_xiao_xu_p1",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "xiao_xu",
+    "patience_stage": 1,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。calm 平静。黑夹克敞开、反光背心在里面、胸前挂手机；p2 看手机，p3 看手表"
+   },
+   {
+    "file": "assets/characters/avatar_xiao_xu_p1_256.png",
+    "category": "avatar_master",
+    "name": "avatar_xiao_xu_p1_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "xiao_xu",
+    "patience_stage": 1,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_xiao_xu_p2@2x.png",
+    "category": "avatar",
+    "name": "avatar_xiao_xu_p2",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "xiao_xu",
+    "patience_stage": 2,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。slightly impatient 有点急。黑夹克敞开、反光背心在里面、胸前挂手机；p2 看手机，p3 看手表"
+   },
+   {
+    "file": "assets/characters/avatar_xiao_xu_p2_256.png",
+    "category": "avatar_master",
+    "name": "avatar_xiao_xu_p2_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "xiao_xu",
+    "patience_stage": 2,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_xiao_xu_p3@2x.png",
+    "category": "avatar",
+    "name": "avatar_xiao_xu_p3",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "xiao_xu",
+    "patience_stage": 3,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。impatient 不耐烦。黑夹克敞开、反光背心在里面、胸前挂手机；p2 看手机，p3 看手表"
+   },
+   {
+    "file": "assets/characters/avatar_xiao_xu_p3_256.png",
+    "category": "avatar_master",
+    "name": "avatar_xiao_xu_p3_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "xiao_xu",
+    "patience_stage": 3,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_xiao_xu_p4@2x.png",
+    "category": "avatar",
+    "name": "avatar_xiao_xu_p4",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "xiao_xu",
+    "patience_stage": 4,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。about to explode 快爆了。黑夹克敞开、反光背心在里面、胸前挂手机；p2 看手机，p3 看手表"
+   },
+   {
+    "file": "assets/characters/avatar_xiao_xu_p4_256.png",
+    "category": "avatar_master",
+    "name": "avatar_xiao_xu_p4_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "xiao_xu",
+    "patience_stage": 4,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_li_jie_p1@2x.png",
+    "category": "avatar",
+    "name": "avatar_li_jie_p1",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "li_jie",
+    "patience_stage": 1,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。calm 平静。围裙、牵着3岁女儿，不拿小黄鸭；p4 孩子哭"
+   },
+   {
+    "file": "assets/characters/avatar_li_jie_p1_256.png",
+    "category": "avatar_master",
+    "name": "avatar_li_jie_p1_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "li_jie",
+    "patience_stage": 1,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_li_jie_p2@2x.png",
+    "category": "avatar",
+    "name": "avatar_li_jie_p2",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "li_jie",
+    "patience_stage": 2,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。slightly impatient 有点急。围裙、牵着3岁女儿，不拿小黄鸭；p4 孩子哭"
+   },
+   {
+    "file": "assets/characters/avatar_li_jie_p2_256.png",
+    "category": "avatar_master",
+    "name": "avatar_li_jie_p2_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "li_jie",
+    "patience_stage": 2,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_li_jie_p3@2x.png",
+    "category": "avatar",
+    "name": "avatar_li_jie_p3",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "li_jie",
+    "patience_stage": 3,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。impatient 不耐烦。围裙、牵着3岁女儿，不拿小黄鸭；p4 孩子哭"
+   },
+   {
+    "file": "assets/characters/avatar_li_jie_p3_256.png",
+    "category": "avatar_master",
+    "name": "avatar_li_jie_p3_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "li_jie",
+    "patience_stage": 3,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_li_jie_p4@2x.png",
+    "category": "avatar",
+    "name": "avatar_li_jie_p4",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "li_jie",
+    "patience_stage": 4,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。about to explode 快爆了。围裙、牵着3岁女儿，不拿小黄鸭；p4 孩子哭"
+   },
+   {
+    "file": "assets/characters/avatar_li_jie_p4_256.png",
+    "category": "avatar_master",
+    "name": "avatar_li_jie_p4_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "li_jie",
+    "patience_stage": 4,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_zhao_jie_p1@2x.png",
+    "category": "avatar",
+    "name": "avatar_zhao_jie_p1",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "zhao_jie",
+    "patience_stage": 1,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。calm 平静。利落短发、珍珠耳钉、藏青开衫；p2/p3 抱臂"
+   },
+   {
+    "file": "assets/characters/avatar_zhao_jie_p1_256.png",
+    "category": "avatar_master",
+    "name": "avatar_zhao_jie_p1_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "zhao_jie",
+    "patience_stage": 1,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_zhao_jie_p2@2x.png",
+    "category": "avatar",
+    "name": "avatar_zhao_jie_p2",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "zhao_jie",
+    "patience_stage": 2,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。slightly impatient 有点急。利落短发、珍珠耳钉、藏青开衫；p2/p3 抱臂"
+   },
+   {
+    "file": "assets/characters/avatar_zhao_jie_p2_256.png",
+    "category": "avatar_master",
+    "name": "avatar_zhao_jie_p2_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "zhao_jie",
+    "patience_stage": 2,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_zhao_jie_p3@2x.png",
+    "category": "avatar",
+    "name": "avatar_zhao_jie_p3",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "zhao_jie",
+    "patience_stage": 3,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。impatient 不耐烦。利落短发、珍珠耳钉、藏青开衫；p2/p3 抱臂"
+   },
+   {
+    "file": "assets/characters/avatar_zhao_jie_p3_256.png",
+    "category": "avatar_master",
+    "name": "avatar_zhao_jie_p3_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "zhao_jie",
+    "patience_stage": 3,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_zhao_jie_p4@2x.png",
+    "category": "avatar",
+    "name": "avatar_zhao_jie_p4",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "customer_id": "zhao_jie",
+    "patience_stage": 4,
+    "notes": "客户卡头像 64×64@2x（HUD v1.4 头像框内 64），透明底，胸像紧裁。about to explode 快爆了。利落短发、珍珠耳钉、藏青开衫；p2/p3 抱臂"
+   },
+   {
+    "file": "assets/characters/avatar_zhao_jie_p4_256.png",
+    "category": "avatar_master",
+    "name": "avatar_zhao_jie_p4_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "zhao_jie",
+    "patience_stage": 4,
+    "notes": "256 母版（更宽的胸像），给结算页 80 头像/弹窗等放大使用"
+   },
+   {
+    "file": "assets/characters/avatar_lao_qian@2x.png",
+    "category": "avatar",
+    "name": "avatar_lao_qian",
+    "pixel_size": [
+     120,
+     120
+    ],
+    "customer_id": "lao_qian",
+    "notes": "老钱中性头像 60×60@2x，花白平头、耳夹铅笔、叼牙签（无烟）"
+   },
+   {
+    "file": "assets/characters/avatar_lao_qian_256.png",
+    "category": "avatar_master",
+    "name": "avatar_lao_qian_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "lao_qian",
+    "notes": "老钱中性 256 母版"
+   },
+   {
+    "file": "assets/characters/avatar_lao_qian_smile_256.png",
+    "category": "avatar_master",
+    "name": "avatar_lao_qian_smile_256",
+    "pixel_size": [
+     256,
+     256
+    ],
+    "customer_id": "lao_qian",
+    "notes": "老钱笑脸 256 母版（通话里给出答案时可换）"
+   },
+   {
+    "file": "assets/characters/laoqian_call@2x.png",
+    "category": "portrait",
+    "name": "laoqian_call",
+    "pixel_size": [
+     640,
+     960
+    ],
+    "customer_id": "lao_qian",
+    "notes": "老钱通话画面，不透明，2:3 竖图 320×480@2x，背景是五金店货架；放进通话面板时按 cover 缩放、可裁边"
+   },
+   {
+    "file": "assets/ui/btn_laoqian@2x.png",
+    "category": "ui_icon",
+    "name": "btn_laoqian",
+    "pixel_size": [
+     112,
+     112
+    ],
+    "notes": "问老钱按钮 56×56@2x，圆框内是老钱头像，不含文字；光晕/角标/半透明由 UI 叠加"
+   },
+   {
+    "file": "assets/ui/btn_laoqian_pressed@2x.png",
+    "category": "ui_icon",
+    "name": "btn_laoqian_pressed",
+    "pixel_size": [
+     112,
+     112
+    ],
+    "notes": "按下态：压暗 18%、缩到 94%"
+   },
+   {
+    "file": "assets/ui/phone_floor_idle@2x.png",
+    "category": "ui_icon",
+    "name": "phone_floor_idle",
+    "pixel_size": [
+     128,
+     192
+    ],
+    "notes": "地上的旧手机 64×96@2x，平放俯视、未旋转（−10° 由 UI 转），熄屏，自带一点接触阴影"
+   },
+   {
+    "file": "assets/ui/phone_floor_notify@2x.png",
+    "category": "ui_icon",
+    "name": "phone_floor_notify",
+    "pixel_size": [
+     128,
+     192
+    ],
+    "notes": "来消息态：屏幕亮起、外圈暖光、屏上是原创喂信单气泡图标（无文字、非微信）；红点数字由 UI 叠加"
+   }
+  ]
+ },
+ "screens_fx_v1": {
+  "_note": "首页、过场、引导动效素材（美术 v1）。只记文件、尺寸、锚点和动画说明；位置以 ui-spec.md v1.2 为准。背景按 390×780 铺满（与 bg_bathroom_base 同规格），无烘焙 UI 文字。jpg 为同图压缩版（约 1/5 体积），小游戏包体用 jpg 即可。",
+  "preview": "design/art/screens_fx_v1_preview.png",
+  "screens": [
+   {
+    "file": "assets/screens/title_bg@2x.png",
+    "file_jpg": "assets/screens/title_bg@2x.jpg",
+    "pixel_size": [
+     780,
+     1560
+    ],
+    "size_1x": [
+     390,
+     780
+    ],
+    "anchor": "topleft",
+    "opaque": true,
+    "notes": "首页。县城小区巷子黄昏，主角扛皮搋子提工具箱走来。右上 0–44 为天空，胶囊区干净；logo 放上方天空区（建议中心 x195 y175）；开工按钮区 y540–640 压在主角小腿/脚上，主角头和工具箱都在按钮区以上；y650 小字和 y686 ⚙ 下面是素净地面（底部已轻微压暗利于文字）。"
+   },
+   {
+    "file": "assets/screens/trans_stairwell@2x.png",
+    "file_jpg": "assets/screens/trans_stairwell@2x.jpg",
+    "pixel_size": [
+     780,
+     1560
+    ],
+    "size_1x": [
+     390,
+     780
+    ],
+    "anchor": "topleft",
+    "opaque": true,
+    "notes": "到客户家门口：老楼楼道，绿墙裙、电表箱、扶手楼梯。墙上的「疏通管道 1XX-XXXX-XXXX」小广告是唯一允许出现的环境字（假号码）。中部偏上墙面较空，可叠客户名/地点小字。"
+   },
+   {
+    "file": "assets/screens/trans_morning@2x.png",
+    "file_jpg": "assets/screens/trans_morning@2x.jpg",
+    "pixel_size": [
+     780,
+     1560
+    ],
+    "size_1x": [
+     390,
+     780
+    ],
+    "anchor": "topleft",
+    "opaque": true,
+    "notes": "workday_beats.morning：家里早饭桌（粥、包子、咸菜、鸡蛋、豆浆），门边凳子上放着工具箱和暖水瓶，窗外县城晨光。上方 40% 是暖色晨雾，留给「第 N 天」等代码文字。"
+   },
+   {
+    "file": "assets/screens/trans_road@2x.png",
+    "file_jpg": "assets/screens/trans_road@2x.jpg",
+    "pixel_size": [
+     780,
+     1560
+    ],
+    "size_1x": [
+     390,
+     780
+    ],
+    "anchor": "topleft",
+    "opaque": true,
+    "notes": "workday_beats.commute：主角骑电动车穿过县城街道，后座绑着工具箱和皮搋子，路边有小吃摊（大壮的摊可对应）。上方 35% 是天空。店招均为空白色块，无字。"
+   },
+   {
+    "file": "assets/screens/trans_evening@2x.png",
+    "file_jpg": "assets/screens/trans_evening@2x.jpg",
+    "pixel_size": [
+     780,
+     1560
+    ],
+    "size_1x": [
+     390,
+     780
+    ],
+    "anchor": "topleft",
+    "opaque": true,
+    "notes": "workday_beats.evening：晚上回家，桌上扣着盘子留的饭、电饭锅保温灯亮着，门边放下的工具箱和皮搋子、换下的球鞋。窗外夜空可叠文字。对应妈妈「锅里给你留了饭」。"
+   },
+   {
+    "file": "assets/screens/doorway_zhao@2x.png",
+    "file_jpg": "assets/screens/doorway_zhao@2x.jpg",
+    "pixel_size": [
+     780,
+     1560
+    ],
+    "size_1x": [
+     390,
+     780
+    ],
+    "anchor": "topleft",
+    "opaque": true,
+    "notes": "G2 开锁单：赵姐家门口正面。门上有福字（门板 1x 约 x103–313、y112–632；福字中心约 x207 y253），左侧鞋柜和绿植，门垫。门上原来的把手已抹掉，锁具全部由代码叠画：建议锁体放在门板把手侧，中心约 x130 y388（1x），不要放在门正中。g2.js 里代码画的门和福字在用这张图时应关掉。",
+    "customer_id": "zhao_jie"
+   }
+  ],
+  "ui": [
+   {
+    "file": "assets/ui/logo_title@2x.png",
+    "pixel_size": [
+     680,
+     400
+    ],
+    "size_1x": [
+     340,
+     200
+    ],
+    "anchor": "center",
+    "notes": "游戏 logo「重生之我在 / 澳洲修马桶」，思源黑体 Bold 重绘描边+手绘抖动，透明底。不要用代码再叠标题字。"
+   },
+   {
+    "file": "assets/ui/btn_primary_normal@2x.png",
+    "pixel_size": [
+     240,
+     112
+    ],
+    "size_1x": [
+     120,
+     56
+    ],
+    "anchor": "topleft",
+    "nine_slice_px": {
+     "left": 40,
+     "right": 40,
+     "top": 40,
+     "bottom": 40
+    },
+    "notes": "主按钮皮肤，ui-spec 主按钮：高 56、金色渐变、2px 暖棕描边、圆角 16、底部内阴影。9 宫格拉伸到任意宽（最小宽 80），高固定 56。按钮文字由代码写（T2 Bold #5A4030）。外投影由代码画。"
+   },
+   {
+    "file": "assets/ui/btn_primary_pressed@2x.png",
+    "pixel_size": [
+     240,
+     112
+    ],
+    "size_1x": [
+     120,
+     56
+    ],
+    "anchor": "topleft",
+    "nine_slice_px": {
+     "left": 40,
+     "right": 40,
+     "top": 40,
+     "bottom": 40
+    },
+    "notes": "按下态，同尺寸同切片；按下时整体下移 2px（ui-spec）。"
+   },
+   {
+    "file": "assets/ui/ui_guide_hand@2x.png",
+    "pixel_size": [
+     80,
+     96
+    ],
+    "size_1x": [
+     40,
+     48
+    ],
+    "anchor": "pivot",
+    "pivot_px": [
+     13,
+     6
+    ],
+    "pivot_norm": [
+     0.165,
+     0.063
+    ],
+    "notes": "点击引导的手，奶油白 #FFF3DA + 约 2px（1x）暖棕描边，指尖朝左上。pivot=指尖。放在按钮右下，指尖对准按钮边缘。"
+   },
+   {
+    "file": "assets/ui/ui_guide_hand_tap@2x.png",
+    "pixel_size": [
+     80,
+     96
+    ],
+    "size_1x": [
+     40,
+     48
+    ],
+    "anchor": "pivot",
+    "pivot_px": [
+     13,
+     14
+    ],
+    "notes": "点下去的那一帧：绕指尖缩到 0.92 并整体下移 4px（1x），与 ui_guide_hand 同画布同位置绘制即可，不用再加 transform。节奏：1.2 s 一循环，在圆放大开始时切到 tap 帧约 0.15 s。也可只用 ui_guide_hand 按 ui-spec 代码做下压+缩放。"
+   },
+   {
+    "file": "assets/ui/ui_guide_ring@2x.png",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "size_1x": [
+     64,
+     64
+    ],
+    "anchor": "center",
+    "notes": "双线圆：奶油白粗线（1x 4px）+ 两侧各 2px 暖棕描边，线宽带轻微手绘起伏，无虚线。冲水引导直接用 64（放大到 1.4 并淡出；外圈 50%）。落点（146×122）和节奏目标圈（120×72）可拉伸使用，椭圆越扁上下线越细，觉得不匀可改用代码画同样的三层线。"
+   },
+   {
+    "file": "assets/ui/ui_guide_ring_ok@2x.png",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "size_1x": [
+     64,
+     64
+    ],
+    "anchor": "center",
+    "notes": "同上，中线改为绿色 #9BE08F，用于落点进入范围/节奏判定窗口内。"
+   },
+   {
+    "file": "assets/ui/ui_guide_ring_gold@2x.png",
+    "pixel_size": [
+     128,
+     128
+    ],
+    "size_1x": [
+     64,
+     64
+    ],
+    "anchor": "center",
+    "notes": "同上，中线金色 #FFD45E，用于节奏引导的收缩圈（1.4→1.0）。"
+   },
+   {
+    "file": "assets/ui/ui_sparkle@2x.png",
+    "pixel_size": [
+     32,
+     32
+    ],
+    "size_1x": [
+     16,
+     16
+    ],
+    "anchor": "center",
+    "notes": "四角星，奶油白+暖棕描边，ui-spec 里的 ui_sparkle@2x（=ui_sparkle_32）。落点 ok 时闪 3 颗：放大 0→1→0 约 0.4 s，错开 0.1 s，可旋转 ±15°。"
+   },
+   {
+    "file": "assets/ui/ui_sparkle_32@2x.png",
+    "pixel_size": [
+     32,
+     32
+    ],
+    "size_1x": [
+     16,
+     16
+    ],
+    "anchor": "center",
+    "notes": "同 ui_sparkle@2x。"
+   },
+   {
+    "file": "assets/ui/ui_sparkle_24@2x.png",
+    "pixel_size": [
+     24,
+     24
+    ],
+    "size_1x": [
+     12,
+     12
+    ],
+    "anchor": "center",
+    "notes": "小号星星，和 32 混用让三颗大小不一。"
+   }
+  ]
+ }
+}
