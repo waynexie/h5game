@@ -2,7 +2,7 @@
 
 完整迁移自 [`waynexie/toilet-repair-g1`](https://github.com/waynexie/toilet-repair-g1/tree/9091729e63c8b01b064fe83cad109e79b15dd14c) 的 `main`（`9091729e63c8b01b064fe83cad109e79b15dd14c`）。250 个源文件逐字节保留，包括代码、数据、图片、设计稿、原 QA 脚本和录屏。没有重新设计玩法、美术或剧情。
 
-在线预览入口：**https://waynexie.github.io/h5game/**（GitHub Pages，发布来源 `main` 根目录；部署完成后生效）。手机竖屏触摸、桌面鼠标均可操作。
+在线预览入口：**https://waynexie.github.io/h5game/**（GitHub Pages，发布来源 `gh-pages` 根目录，内容从已合并的 `main` 导出）。手机竖屏触摸、桌面鼠标均可操作。
 
 ## 本地运行
 
@@ -26,4 +26,4 @@ for f in src/*.js; do node --check "$f" || exit 1; done
 - [`backup/pre-grok-main-20261113`](https://github.com/waynexie/h5game/tree/backup/pre-grok-main-20261113)：`1e064929dc5f203c00a1748b87be70fc3f55ebac`
 - [`backup/pre-grok-preview-20261113`](https://github.com/waynexie/h5game/tree/backup/pre-grok-preview-20261113)：`7f05a1d9474e8592216a20e535048ba7c123b05e`，旧试玩游戏完整版本
 
-原 `gh-pages` 分支也保留。需要回退旧试玩时，将目标仓库 Pages 来源切回 `gh-pages` 根目录即可；无需改动只读源仓库。
+需要回退旧试玩时，从 `backup/pre-grok-preview-20261113` 导出完整文件树，作为新的部署提交发布到 `gh-pages`；无需改动只读源仓库。
